@@ -6,22 +6,41 @@ import java.util.Scanner;
 
 public class Main {
 	Scanner scan = new Scanner(System.in);
-	public void print_output(String [] finalwords) {
+	private void print_output(String [] finalwords) {
 		for (String word : finalwords) {
 			System.out.print(word +" ");
 		}
 	}
-	public Main() {
+	private void run() {
 		String words;
+		System.out.println("Enter the word you want to reverse");
+		//main function
 		words = scan.nextLine();
 		String [] finalwords = words.split(" ",-1);
 		 Collections.reverse(Arrays.asList(finalwords)); 
+		 String chs;
 		print_output(finalwords);
-		// TODO Auto-generated constructor stub
+		
+		//end main function
+		do {
+			System.out.println();
+			System.out.println("do you want to reenter string?[YES|NO]");
+			chs = scan.nextLine();
+		}
+		while(!chs.equals("YES")&&!chs.equals("NO"));
+		if(chs.equals("YES")) {
+			run();
+		}
+		return;
+	}
+	public Main() {
+		run();
+		System.out.println("Thank you for using this app");
+		
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		new Main();
 	}
 
